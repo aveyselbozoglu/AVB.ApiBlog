@@ -55,7 +55,6 @@ namespace AVB.ApiBlog.Api.Controllers
             return BadRequest();
         }
 
-
         [HttpGet]
         [Route("ArticleCommentCountUp/{id}")]
         public async Task<IActionResult> ArticleCommentCountUp(int? id)
