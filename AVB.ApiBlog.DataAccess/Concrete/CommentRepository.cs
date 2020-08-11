@@ -17,5 +17,8 @@ namespace AVB.ApiBlog.DataAccess.Concrete
             await using var context = new DatabaseContext();
             return await context.Comments.Where(x => x.ArticleId == id).ToListAsync();
         }
+
+
+
     }
 }

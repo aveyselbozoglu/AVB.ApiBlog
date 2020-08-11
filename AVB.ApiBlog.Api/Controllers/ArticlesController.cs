@@ -44,9 +44,28 @@ namespace AVB.ApiBlog.Api.Controllers
         [Route("ArticleViewCountUp/{id}")]
         public async Task<IActionResult> ArticleViewCountUp(int? id)
         {
-            if (id != null) await _articleDal.ArticleViewCountUp(id.Value);
+            if (id != null)
+            {
 
-            return Ok();
+
+                _articleDal.ArticleViewCountUp(id.Value);
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("ArticleCommentCountUp/{id}")]
+        public async Task<IActionResult> ArticleCommentCountUp(int? id)
+        {
+            if (id != null)
+            {
+                await _articleDal.ArticleCommentCountUp(id.Value);
+                return Ok();
+            }
+
+                return BadRequest();
         }
 
         // DELETE: api/Articles/5

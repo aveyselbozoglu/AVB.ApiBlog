@@ -30,5 +30,7 @@ namespace AVB.ApiBlog.DataAccess.Interfaces
         new Task<int> Update(Article article);
 
         Task ArticleViewCountUp(int id);
+
+        Task ArticleCommentCountUp(int id);
     }
 }

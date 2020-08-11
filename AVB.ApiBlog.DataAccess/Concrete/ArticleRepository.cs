@@ -96,6 +96,22 @@ namespace AVB.ApiBlog.DataAccess.Concrete
             await context.SaveChangesAsync();
         }
 
+        public async Task ArticleCommentCountUp(int id)
+        {
+            await using var context = new DatabaseContext();
+
+            var article = context.Articles.Find(id);
+
+            if (article != null)
+            {
+                article.CommentCount += 1;
+
+                await context.SaveChangesAsync();
+            }
+
+        }
+
+
         //public async Task<IEnumerable<Article>> GetArticlesArchieve()
         //{
         //    await using var context = new DatabaseContext();

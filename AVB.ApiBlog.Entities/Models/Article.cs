@@ -19,6 +19,9 @@ namespace AVB.ApiBlog.Entities.Models
 
         public int ViewCount { get; set; }
 
+        public int CommentCount { get; set; }
+
+
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 

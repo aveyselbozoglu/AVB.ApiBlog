@@ -67,6 +67,12 @@ namespace AVB.ApiBlog.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {
+
+            if (comment == null)
+                return BadRequest();
+
+            comment.PublishDate = DateTime.Now;
+
             await _commentDal.Add(comment);
             
             return CreatedAtAction("GetComment", new { id = comment.Id }, comment);
